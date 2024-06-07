@@ -16,7 +16,10 @@ connectDB();
 const app = express();
 
 // Middleware
-app.use(cors());
+app.use(cors({
+    origin: process.env.CORS_ORIGIN,
+    credentials: true
+}));
 app.use(express.json());
 
 // Routes
@@ -26,6 +29,7 @@ app.use('/api/file', fileRoute);
 app.use('/api/diet', dietRoute);
 
 const PORT = process.env.PORT || 8080
+
 app.listen(PORT, (req, res) => {
     console.log(`Connected to port ${PORT}`);
 })

@@ -1,6 +1,7 @@
 import fileModel from "../models/fileModel.js";
 import fs from "fs";
 import slugify from "slugify";
+import Readable from 'stream';
 
 const createFileController = async (req, res) => {
   try {
